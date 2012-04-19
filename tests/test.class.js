@@ -70,6 +70,53 @@ function(clazz, chai) {
       
     });
     
+    describe(".augment", function() {
+      
+      it('should mix in single function', function() {
+        function Alien() {};
+        var Mixin = {
+          foo: function() { return 'foo'; }
+        }
+        clazz.augment(Alien, Mixin);
+        
+        expect(Alien.prototype.foo).to.be.a('function');
+      });
+      it('should mix in multiple functions', function() {
+        function Alien() {};
+        var Mixin = {
+          multiFoo: function() { return 'foo'; },
+          multiBar: function() { return 'foo'; }
+        }
+        clazz.augment(Alien, Mixin);
+        
+        expect(Alien.prototype.multiFoo).to.be.a('function');
+        expect(Alien.prototype.multiBar).to.be.a('function');
+      });
+      it('should overwrite by default', function() {
+        function Alien() {};
+        Alien.prototype.say = function() { return 'we come in peace' }
+        var Mixin = {
+          say: function() { return 'nanoo nanoo'; },
+        }
+        clazz.augment(Alien, Mixin);
+        
+        var alien = new Alien();
+        expect(alien.say()).to.be.equal('nanoo nanoo');
+      });
+      it('should not overwrite when option is set to false', function() {
+        function Alien() {};
+        Alien.prototype.say = function() { return 'we come in peace' }
+        var Mixin = {
+          say: function() { return 'nanoo nanoo'; },
+        }
+        clazz.augment(Alien, Mixin, { overwrite: false });
+        
+        var alien = new Alien();
+        expect(alien.say()).to.be.equal('we come in peace');
+      });
+      
+    });
+    
   });
   
   return { name: "test.class" }

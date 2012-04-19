@@ -29,9 +29,18 @@ define({
     ctor.prototype.constructor = ctor;
   },
   
-  augment: function(ctor, mixin) {
-    for (method in mixin) {
-      if (!ctor.prototype[method]) {
+  /**
+   * Augments the constructor with methods from mixin.
+   *
+   * @param {Function} ctor Contructor function to augment prototype of.
+   * @param {Function} mixin Mixin object used to augment constructor.
+   */
+  augment: function(ctor, mixin, options) {
+    options = options || {};
+    var overwrite = (options.overwrite === undefined) ? true : options.overwrite;
+    
+    for (var method in mixin) {
+      if (overwrite || !ctor.prototype[method]) {
         ctor.prototype[method] = mixin[method];
       }
     }
