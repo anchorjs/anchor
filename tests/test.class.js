@@ -1,13 +1,75 @@
 define(['anchor/class',
         'chai'],
 
-function(klass, chai) {
+function(clazz, chai) {
   var expect = chai.expect;
 
   describe("class", function() {
-    it('shoud pass', function() {
-      expect(1).to.equal(1);
+    
+    describe(".inherits", function() {
+      function Animal() {};
+      function Lion() {};
+      clazz.inherits(Lion, Animal);
+      
+      it('shoud restore constructor', function() {
+        expect(Lion.prototype.constructor).to.be.equal(Lion);
+      });
+      it('shoud set super_ property', function() {
+        expect(Lion.super_).to.be.equal(Animal);
+      });
+      it('shoud create instances of superclass', function() {
+        var lion = new Lion();
+        expect(lion).to.be.an.instanceOf(Lion);
+        expect(lion).to.be.an.instanceOf(Animal);
+      });
+      
+      describe('using super_ property in constructor', function() {
+        function Animal(says) {
+          this._says = says;
+        };
+        Animal.prototype.say = function() {
+          return this._says;
+        }
+        
+        function Cat() {
+          Cat.super_.call(this, 'meow');
+          // => Animal.call(this, 'meow');
+        }
+        clazz.inherits(Cat, Animal);
+        
+        it('should access super constructor', function() {
+          var cat = new Cat();
+          expect(cat.say()).to.be.equal('meow');
+        });
+      });
+      
+      describe('using super_ property in method', function() {
+        function Animal(says) {
+          this._says = says;
+        };
+        Animal.prototype.say = function() {
+          return this._says;
+        }
+        
+        function Dog() {
+          Dog.super_.call(this, 'woof');
+        }
+        clazz.inherits(Dog, Animal);
+        
+        Dog.prototype.say = function() {
+          var noise = Dog.super_.prototype.say.call(this);
+          // => var noise = Animal.prototype.say.call(this);
+          return noise + ' ' + noise;
+        }
+        
+        it('should access super method through super prototype', function() {
+          var dog = new Dog();
+          expect(dog.say()).to.be.equal('woof woof');
+        });
+      });
+      
     });
+    
   });
   
   return { name: "test.class" }
