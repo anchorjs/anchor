@@ -1,8 +1,8 @@
-define(['./dom/collection',
-        './dom/traversal',
-        './dom/manipulation',
-        './dom/style',
-        './dom/events',
+define(['./lib/dom/collection',
+        './lib/dom/traversal',
+        './lib/dom/manipulation',
+        './lib/dom/style',
+        './lib/dom/events',
         './selector',
         './class'],
 function(Collection, Traversal, Manipulation, Style, Events, select, klass) {
