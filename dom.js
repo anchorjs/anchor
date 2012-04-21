@@ -11,7 +11,9 @@
  * possible and practical, this module attempts to be compatible with the jQuery
  * jQuery API.  However, in the spirit of defining a next-generation, modular
  * JavaScript platform, no effort is made to reproduce the DOM-related
- * functionality of jQuery in its entirety.
+ * functionality of jQuery in its entirety.  When deviations occur, they are
+ * in the interest of conforming to JavaScript standards, rather than conforming
+ * to jQuery expectations.
  *
  * Ender (specifically Bonzo in relation to the DOM) is similiar in spirit to
  * the goals of the Anchor platform.  Both this module and Bonzo are generally
