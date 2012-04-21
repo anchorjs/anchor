@@ -14,9 +14,11 @@ function(clazz, chai) {
       it('shoud restore constructor', function() {
         expect(Lion.prototype.constructor).to.be.equal(Lion);
       });
+      
       it('shoud set super_ property', function() {
         expect(Lion.super_).to.be.equal(Animal);
       });
+      
       it('shoud create instances of superclass', function() {
         var lion = new Lion();
         expect(lion).to.be.an.instanceOf(Lion);
@@ -81,6 +83,7 @@ function(clazz, chai) {
         
         expect(Alien.prototype.foo).to.be.a('function');
       });
+      
       it('should mix in multiple functions', function() {
         function Alien() {};
         var Mixin = {
@@ -92,6 +95,7 @@ function(clazz, chai) {
         expect(Alien.prototype.multiFoo).to.be.a('function');
         expect(Alien.prototype.multiBar).to.be.a('function');
       });
+      
       it('should overwrite by default', function() {
         function Alien() {};
         Alien.prototype.say = function() { return 'we come in peace' }
@@ -103,6 +107,7 @@ function(clazz, chai) {
         var alien = new Alien();
         expect(alien.say()).to.be.equal('nanoo nanoo');
       });
+      
       it('should not overwrite when option is set to false', function() {
         function Alien() {};
         Alien.prototype.say = function() { return 'we come in peace' }

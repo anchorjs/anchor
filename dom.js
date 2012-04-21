@@ -1,3 +1,22 @@
+/**
+ * dom
+ *
+ * This module provides DOM utility functions for simplifying common DOM
+ * operations, including traversal, manipulation, etc.
+ *
+ * Heritage:
+ *
+ * jQuery is the predominant DOM utility in use across the web today.  This
+ * module provides analogous functionality to the Anchor platform.  Wherever
+ * possible and practical, this module attempts to be compatible with the jQuery
+ * jQuery API.  However, in the spirit of defining a next-generation, modular
+ * JavaScript platform, no effort is made to reproduce the DOM-related
+ * functionality of jQuery in its entirety.
+ *
+ * Ender (specifically Bonzo in relation to the DOM) is similiar in spirit to
+ * the goals of the Anchor platform.  Both this module and Bonzo are generally
+ * compatible, due to the shared goal of compatibility with jQuery's API.
+ */
 define(['./lib/dom/collection',
         './lib/dom/traversal',
         './lib/dom/manipulation',

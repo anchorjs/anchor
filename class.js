@@ -1,5 +1,8 @@
 /**
- * Module definition.
+ * class
+ *
+ * This module provides object-oriented programming techniques, including
+ * inheritance and mixins, to the Anchor platform.
  */
 define({
   
@@ -11,12 +14,12 @@ define({
    *
    * Heritage:
    *
-   *   This function is principly designed based on the information in Pro
-   *   JavaScript Design Patterns, Chapter 3: Inheritance.  The function is
-   *   named `extend` in the book.
+   * This function is principly designed based on the information in Pro
+   * JavaScript Design Patterns, Chapter 3: Inheritance.  The function is named
+   * `extend` in the book.
    *
-   *   The behavior of this function is equivalent to that of `inherits()`
-   *   provided by Node's `util` module.
+   * The behavior of this function is equivalent to that of `inherits()`
+   * provided by Node's `util` module.
    *
    * @param {Function} ctor Contructor function that inherits prototype.
    * @param {Function} superCtor Constructor function to inherit prototype from.
@@ -38,6 +41,8 @@ define({
   augment: function(ctor, mixin, options) {
     options = options || {};
     var overwrite = (options.overwrite === undefined) ? true : options.overwrite;
+    
+    // TODO: Implement support for picking the methods to be mixed in.
     
     for (var method in mixin) {
       if (overwrite || !ctor.prototype[method]) {
