@@ -24,12 +24,12 @@ define(['./lib/dom/collection',
         './lib/dom/events',
         './selector',
         './class'],
-function(Collection, Traversal, Manipulation, Style, Events, select, klass) {
+function(Collection, Traversal, Manipulation, Style, Events, select, clazz) {
   
-  klass.augment(Collection, Traversal);
-  klass.augment(Collection, Manipulation);
-  klass.augment(Collection, Style);
-  klass.augment(Collection, Events);
+  clazz.augment(Collection, Traversal);
+  clazz.augment(Collection, Manipulation);
+  clazz.augment(Collection, Style);
+  clazz.augment(Collection, Events);
   
   function dom(nodes) {
     if (typeof nodes == 'string') { nodes = select(nodes) }

@@ -13,7 +13,8 @@ require(['require',
 function(require, _mocha, _chai) {
   mocha.setup('bdd');
   
-  require(['test.class'],
+  require(['test.class',
+           'test.dom.collection'],
   function() {
     mocha.run();
   });

@@ -23,6 +23,7 @@ define({
    *
    * @param {Function} ctor Contructor function that inherits prototype.
    * @param {Function} superCtor Constructor function to inherit prototype from.
+   * @api public
    */
   inherits: function(ctor, superCtor) {
     ctor.super_ = superCtor;
@@ -37,6 +38,7 @@ define({
    *
    * @param {Function} ctor Contructor function to augment prototype of.
    * @param {Function} mixin Mixin object used to augment constructor.
+   * @api public
    */
   augment: function(ctor, mixin, options) {
     options = options || {};
