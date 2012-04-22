@@ -77,6 +77,24 @@ function($, Collection, chai) {
       });
     });
     
+    describe('.create', function() {
+      
+      it('should create an element', function() {
+        var el = $.create('div')
+        
+        expect(el).to.be.an.instanceOf(Element);
+        expect(el.outerHTML).to.be.equal('<div></div>');
+      });
+      
+      it('should create an element with attributes', function() {
+        var el = $.create('div', { 'id': 'foo', 'class': 'test' })
+        
+        expect(el).to.be.an.instanceOf(Element);
+        expect(el.outerHTML).to.be.equal('<div id="foo" class="test"></div>');
+      });
+      
+    });
+    
     describe('.fragment', function() {
       
       it('should create an element', function() {

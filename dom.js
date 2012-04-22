@@ -45,6 +45,16 @@ function(Collection, Traversal, Manipulation, Style, Events, select, clazz) {
     return new Collection(nodes);
   }
   
+  // TODO: Document and unit test this function.
+  // TODO: Add text argument
+  dom.create = function(tag, attrs) {
+    var el = document.createElement(tag);
+    for (var name in attrs) {
+      el.setAttribute(name, attrs[name]);
+    }
+    return el;
+  }
+  
   /**
    * Creates a DOM element from an HTML fragment.
    *
