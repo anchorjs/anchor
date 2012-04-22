@@ -28,34 +28,45 @@ define(['./lib/dom/collection',
         './class'],
 function(Collection, Traversal, Manipulation, Style, Events, select, clazz) {
   
+  /**
+   * Augment Collection with DOM utility functions.
+   */
   clazz.augment(Collection, Traversal);
   clazz.augment(Collection, Manipulation);
   clazz.augment(Collection, Style);
   clazz.augment(Collection, Events);
   
   function dom(nodes) {
-    if (typeof nodes == 'string') { nodes = select(nodes) }
+    if (!nodes) { return new Collection() }
+    if (nodes instanceof Collection) { return nodes }
+    if (typeof nodes == 'string') {
+      if (/^\s*<([^\s>]+)/.test(nodes)) {
+        // HTML fragment
+        nodes = dom.fragment(nodes);
+      } else {
+        // CSS selector
+        nodes = select(nodes)
+      }
+    }
     return new Collection(nodes);
   }
   
-  dom.create = function(tag, attrs, content) {
-    //var el = dom(document.createElement(tag));
-    // TODO: Find a convention for what to return here.  Wrapped DOM node,
-    //       or native DOM node?
-    var el = document.createElement(tag);
-    // TODO: Implement support for this stuff.
-    if (attrs) el.attr(attrs);
-    if (content) el.html(content);
-    return el;
-  }
-  
-  // TODO: This should be handled automatically within create().
-  // http://stackoverflow.com/questions/494143/creating-a-new-dom-element-from-an-html-string-using-built-in-dom-methods-or-pro
-  dom.fromHTML = function(str) {
+  /**
+   * Creates a DOM element from an HTML fragment.
+   *
+   * @param {String} html HTML fragment.
+   * @return {Array} DOM elements
+   * @api private
+   */
+  dom.fragment = function(html) {
+    // TODO: This function needs fixes for container elements and IE
+    //       compatibility.
+    // TODO: For simple HTML element strings, create using createElement, rather
+    //       than innerHTML, which may be a performance optimization.
+    
     var div = document.createElement('div');
-    div.innerHTML = str;
-    var elements = div.childNodes;
-    return new Collection(elements);
+    div.innerHTML = html;
+    return div.childNodes;
   }
   
   return dom;

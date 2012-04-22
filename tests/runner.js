@@ -14,6 +14,7 @@ function(require, _mocha, _chai) {
   mocha.setup('bdd');
   
   require(['test.class',
+           'test.dom',
            'test.dom.collection'],
   function() {
     mocha.run();
