@@ -68,5 +68,9 @@ function(Collection, Traversal, Manipulation, Style, Events, select, clazz) {
     return div.childNodes;
   }
   
+  dom.augment = function(mixin) {
+    clazz.augment(Collection, mixin);
+  }
+  
   return dom;
 });
