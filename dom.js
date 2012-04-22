@@ -21,7 +21,16 @@ function(Collection, Traversal, Manipulation, Style, Events, select, clazz) {
   clazz.augment(Collection, Style);
   clazz.augment(Collection, Events);
   
+  /**
+   * Returns a collection of DOM nodes with usable utility functions.
+   *
+   * @param {Mixed} nodes
+   * @return {Collection} DOM element collection
+   * @api public
+   */
   function dom(nodes) {
+    // TODO: Document the various ways of using this function.
+    
     if (!nodes) { return new Collection() }
     if (nodes instanceof Collection) { return nodes }
     if (typeof nodes == 'string') {
