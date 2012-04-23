@@ -31,7 +31,6 @@ function(Collection, Traversal, Manipulation, Style, Events, select, clazz) {
   function dom(nodes) {
     // TODO: Document the various ways of using this function.
     
-    if (!nodes) { return new Collection() }
     if (nodes instanceof Collection) { return nodes }
     if (typeof nodes == 'string') {
       if (/^\s*<([^\s>]+)/.test(nodes)) {
@@ -45,13 +44,34 @@ function(Collection, Traversal, Manipulation, Style, Events, select, clazz) {
     return new Collection(nodes);
   }
   
-  // TODO: Document and unit test this function.
-  // TODO: Add text argument
-  dom.create = function(tag, attrs) {
+  /**
+   * Creates a DOM element with tag and optional attributes and text.
+   *
+   * Examples:
+   *
+   *     $.create('div');
+   *
+   *     $.create('p', 'Hello');
+   *
+   *     $.create('p', { 'id': 'welcome' }, 'Hello Jared');
+   *
+   * @param {String} tag
+   * @param {Object} attrs
+   * @param {Object} tag
+   * @return {Element} DOM element
+   * @api public
+   */
+  dom.create = function(tag, attrs, text) {
+    if (typeof attrs == 'string') {
+      text = attrs;
+      attrs = {};
+    }
+    
     var el = document.createElement(tag);
     for (var name in attrs) {
       el.setAttribute(name, attrs[name]);
     }
+    if (text) { el.textContent = text }
     return el;
   }
   
@@ -60,7 +80,7 @@ function(Collection, Traversal, Manipulation, Style, Events, select, clazz) {
    *
    * @param {String} html HTML fragment.
    * @return {Array} DOM elements
-   * @api private
+   * @api public
    */
   dom.fragment = function(html) {
     var div = document.createElement('div');

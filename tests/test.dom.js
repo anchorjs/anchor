@@ -93,6 +93,20 @@ function($, Collection, chai) {
         expect(el.outerHTML).to.be.equal('<div id="foo" class="test"></div>');
       });
       
+      it('should create an element with text', function() {
+        var el = $.create('div', 'Hello')
+        
+        expect(el).to.be.an.instanceOf(Element);
+        expect(el.outerHTML).to.be.equal('<div>Hello</div>');
+      });
+      
+      it('should create an element with attributes and text', function() {
+        var el = $.create('div', { 'id': 'foo', 'class': 'test' }, 'Hello')
+        
+        expect(el).to.be.an.instanceOf(Element);
+        expect(el.outerHTML).to.be.equal('<div id="foo" class="test">Hello</div>');
+      });
+      
     });
     
     describe('.fragment', function() {
