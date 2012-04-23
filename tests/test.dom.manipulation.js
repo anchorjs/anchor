@@ -46,6 +46,48 @@ function($, chai) {
       });
     });
     
+    describe('text', function() {
+      
+      it('should get text of element with text', function() {
+        var el = $('#manipulate-text-link-1');
+        expect(el.text()).to.be.equal('foo text');
+      });
+      
+      it('should get text of element with html', function() {
+        var el = $('#manipulate-text-link-2');
+        expect(el.text()).to.be.equal('bar text');
+      });
+      
+      it('should get text of first node in collection of nodes', function() {
+        var el = $('#manipulate-text a');
+        expect(el.length).to.be.equal(2);
+        expect(el.text()).to.be.equal('foo text');
+      });
+      
+      it('should set text of element with text', function() {
+        var el = $('#manipulate-text-link-1');
+        el.text('lorem text');
+        expect(el.text()).to.be.equal('lorem text');
+        expect(el.html()).to.be.equal('lorem text');
+      });
+      
+      it('should set text of element with escaped html', function() {
+        var el = $('#manipulate-text-link-2');
+        el.text('<i>ipsum text</i>');
+        expect(el.text()).to.be.equal('<i>ipsum text</i>');
+        expect(el.html()).to.be.equal('&lt;i&gt;ipsum text&lt;/i&gt;');
+      });
+      
+      it('should set text of multiple elements', function() {
+        var els = $('#manipulate-text a').text('lorem ipsum text');
+        
+        var el1 = $('#manipulate-text-link-1');
+        expect(el1.text()).to.be.equal('lorem ipsum text');
+        var el2 = $('#manipulate-text-link-2');
+        expect(el2.text()).to.be.equal('lorem ipsum text');
+      });
+    });
+    
   });
   
   return { name: "test.dom.manipulation" }
