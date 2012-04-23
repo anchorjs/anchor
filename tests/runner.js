@@ -15,7 +15,8 @@ function(require, _mocha, _chai) {
   
   require(['test.class',
            'test.dom',
-           'test.dom.collection'],
+           'test.dom.collection',
+           'test.dom.manipulation'],
   function() {
     mocha.run();
   });
