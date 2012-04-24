@@ -1,7 +1,12 @@
-define(function() {
+define(['./lib/ajax/request'],
+function(Request) {
 
-  function get() {
+  function get(url, method) {
     console.log('Ajax#get')
+    
+    var req = new Request(url, method);
+    req.send();
+    return req;
   }
 
   
