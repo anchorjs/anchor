@@ -31,7 +31,7 @@ function(Collection, Traversal, Manipulation, Style, Events, select, clazz) {
   function dom(nodes) {
     // TODO: Document the various ways of using this function.
     
-    if (nodes instanceof Collection) { return nodes }
+    if (nodes instanceof Collection) return nodes;
     if (typeof nodes == 'string') {
       if (/^\s*<([^\s>]+)/.test(nodes)) {
         // HTML fragment
@@ -71,7 +71,7 @@ function(Collection, Traversal, Manipulation, Style, Events, select, clazz) {
     for (var name in attrs) {
       el.setAttribute(name, attrs[name]);
     }
-    if (text) { el.textContent = text }
+    if (text) el.textContent = text;
     return el;
   }
   
