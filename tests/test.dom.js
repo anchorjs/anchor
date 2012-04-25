@@ -134,6 +134,27 @@ function($, Collection, chai) {
     
     });
     
+    describe('.augment', function() {
+      
+      it('should augment Collection with functions', function() {
+        var mixin = {
+          testFoo: function() {},
+          testBar: function() {}
+        }
+        
+        expect(Collection.prototype.testFoo).to.not.exist;
+        expect(Collection.prototype.testBar).to.not.exist;
+        
+        var rv = $.augment(mixin);
+        
+        expect(Collection.prototype.testFoo).to.exist;
+        expect(Collection.prototype.testFoo).to.exist;
+        
+        expect(rv).to.be.equal($);
+      });
+    
+    });
+    
   });
   
   return { name: "test.dom" }

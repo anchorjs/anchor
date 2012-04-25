@@ -88,8 +88,37 @@ function(Collection, Traversal, Manipulation, Style, Events, select, clazz) {
     return div.childNodes;
   }
   
+  /**
+   * Augments DOM utilities with functions from `mixin`.
+   *
+   *
+   * Transition from jQuery or Zepto:
+   *
+   * `augment()` provides functionality similiar to that used to author jQuery
+   * plugins.  jQuery is extended by adding functions to `jQuery.fn`:
+   *
+   *     jQuery.fn.myUtility = function() { ... };
+   *
+   * In Anchor, this translates to:
+   *
+   *     $.augment({
+   *       myUtility: function() { ... }
+   *     });
+   *
+   * Transition from Ender/Bonzo:
+   *
+   * This function is equivalent to `bonzo.aug()`.  `bonzo.aug()` has an
+   * optional `target` argument that indicates the object to augment, which
+   * defaults to `Bonzo.prototype`.  In Anchor, this argument is not available;
+   * the `Collection` DOM wrapper is always augmented.
+   *
+   *
+   * @param {Object} mixin.
+   * @api public
+   */
   dom.augment = function(mixin) {
     clazz.augment(Collection, mixin);
+    return this;
   }
   
   return dom;
