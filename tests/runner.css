@@ -11,3 +11,11 @@
 #display-none-1 {
   display: none;
 }
+
+.display-block {
+  display: block;
+}
+
+.display-none {
+  display: none;
+}

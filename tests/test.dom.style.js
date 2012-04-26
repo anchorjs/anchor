@@ -24,6 +24,19 @@ function($, chai) {
         $('#display-none-1').hide();
         expect(el.style.display).to.be.equal('none');
       });
+      
+      describe('multiple elements', function() {
+        var p1 = document.getElementById('hidden-p-1');
+        var p2 = document.getElementById('hidden-p-1');
+        var p3 = document.getElementById('hidden-p-1');
+        
+        it('should set value to given value when shown', function() {
+          $('.display-none').show('block');
+          expect(p1.style.display).to.be.equal('block');
+          expect(p2.style.display).to.be.equal('block');
+          expect(p3.style.display).to.be.equal('block');
+        });
+      });
     });
     
     describe('hide', function() {
@@ -39,6 +52,19 @@ function($, chai) {
       it('should set value back to empty string when shown', function() {
         $('#display-block-1').show();
         expect(el.style.display).to.be.equal('');
+      });
+      
+      describe('multiple elements', function() {
+        var p1 = document.getElementById('visible-p-1');
+        var p2 = document.getElementById('visible-p-1');
+        var p3 = document.getElementById('visible-p-1');
+        
+        it('should set value to given value when shown', function() {
+          $('.display-block').hide();
+          expect(p1.style.display).to.be.equal('none');
+          expect(p2.style.display).to.be.equal('none');
+          expect(p3.style.display).to.be.equal('none');
+        });
       });
     });
     
