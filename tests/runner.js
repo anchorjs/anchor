@@ -18,6 +18,7 @@ function(require, _mocha, _chai) {
            'test.dom',
            'test.dom.collection',
            'test.dom.manipulation',
+           'test.dom.metrics',
            'test.events',
            'test.events.eventemitter'],
   function() {
