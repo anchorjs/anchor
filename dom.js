@@ -4,14 +4,15 @@
  * This module provides DOM utility functions for simplifying common DOM
  * operations, including traversal, manipulation, etc.
  */
-define(['./lib/dom/collection',
+define(['./class',
+        './selector',
+        './lib/dom/collection',
         './lib/dom/traversal',
         './lib/dom/manipulation',
         './lib/dom/style',
-        './lib/dom/events',
-        './selector',
-        './class'],
-function(Collection, Traversal, Manipulation, Style, Events, select, clazz) {
+        './lib/dom/position',
+        './lib/dom/events'],
+function(clazz, select, Collection, Traversal, Manipulation, Style, Position, Events) {
   
   /**
    * Augment `Collection` with DOM utility functions.
@@ -19,6 +20,7 @@ function(Collection, Traversal, Manipulation, Style, Events, select, clazz) {
   clazz.augment(Collection, Traversal);
   clazz.augment(Collection, Manipulation);
   clazz.augment(Collection, Style);
+  clazz.augment(Collection, Position);
   clazz.augment(Collection, Events);
   
   /**
