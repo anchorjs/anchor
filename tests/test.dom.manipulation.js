@@ -7,6 +7,11 @@ function($, chai) {
   describe("dom manipulation", function() {
     
     describe('html', function() {
+      
+      it('should return null for an empty collection', function() {
+        var el = $();
+        expect(el.offset()).to.be.equal(null);
+      });
     
       it('should get html of element with text', function() {
         var el = $('#manipulate-html-link-1');
@@ -47,6 +52,11 @@ function($, chai) {
     });
     
     describe('text', function() {
+      
+      it('should return null for an empty collection', function() {
+        var el = $();
+        expect(el.offset()).to.be.equal(null);
+      });
       
       it('should get text of element with text', function() {
         var el = $('#manipulate-text-link-1');
