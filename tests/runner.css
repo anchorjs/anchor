@@ -3,3 +3,11 @@
   top: -10000px;
   left: -10000px;
 }
+
+#display-block-1 {
+  display: block;
+}
+
+#display-none-1 {
+  display: none;
+}
