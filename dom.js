@@ -9,18 +9,18 @@ define(['./class',
         './lib/dom/collection',
         './lib/dom/traversal',
         './lib/dom/manipulation',
+        './lib/dom/metrics',
         './lib/dom/style',
-        './lib/dom/position',
         './lib/dom/events'],
-function(clazz, select, Collection, Traversal, Manipulation, Style, Position, Events) {
+function(clazz, select, Collection, Traversal, Manipulation, Metrics, Style, Events) {
   
   /**
    * Augment `Collection` with DOM utility functions.
    */
   clazz.augment(Collection, Traversal);
   clazz.augment(Collection, Manipulation);
+  clazz.augment(Collection, Metrics);
   clazz.augment(Collection, Style);
-  clazz.augment(Collection, Position);
   clazz.augment(Collection, Events);
   
   /**
