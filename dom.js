@@ -24,7 +24,7 @@ function(clazz, select, Collection, Traversal, Manipulation, Style, Position, Ev
   clazz.augment(Collection, Events);
   
   /**
-   * Returns a collection of DOM nodes with usable utility functions.
+   * Returns a collection of DOM elements with usable utility functions.
    *
    * @param {Mixed} nodes
    * @return {Collection} DOM element collection
