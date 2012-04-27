@@ -1,3 +1,18 @@
 {
-  "main": "./lib/anchor"
+  "name": "anchor",
+  "version": "0.0.0",
+  "description": "Modular JavaScript platform for web applications.",
+  "repository": {
+    "type": "git",
+    "url": "git://github.com/anchorjs/anchor.git"
+  },
+  "bugs": {
+    "url": "http://github.com/anchorjs/anchor/issues"
+  },
+  "author": { "name": "Jared Hanson", "email": "jaredhanson@gmail.com", "url": "http://www.jaredhanson.net/" },
+  "licenses": [ {
+    "type": "MIT",
+    "url": "http://www.opensource.org/licenses/MIT" 
+  } ],
+  "volo": {}
 }
