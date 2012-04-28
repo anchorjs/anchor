@@ -27,7 +27,7 @@ function(clazz, select, Collection, Traversal, Manipulation, Metrics, Style, Eve
    * Returns a collection of DOM elements with usable utility functions.
    *
    * @param {Mixed} nodes
-   * @return {Collection} DOM element collection
+   * @return {Collection}
    * @api public
    */
   function dom(nodes) {
@@ -59,7 +59,7 @@ function(clazz, select, Collection, Traversal, Manipulation, Metrics, Style, Eve
    *
    * @param {String} tag
    * @param {Object} attrs
-   * @param {Object} tag
+   * @param {String} text
    * @return {Element} DOM element
    * @api public
    */
