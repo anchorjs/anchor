@@ -19,3 +19,22 @@
 .display-none {
   display: none;
 }
+
+#scroll div {
+  background: #CCCCCC none repeat scroll 0 0;
+  border: 3px solid #666666;
+  margin: 5px;
+  padding: 5px;
+  position: relative;
+  width: 200px;
+  height: 100px;
+  overflow: auto;
+}
+
+#scroll p {
+  margin: 10px;
+  padding: 5px;
+  border: 2px solid #666;
+  width: 1000px;
+  height: 1000px;
+}

@@ -23,6 +23,21 @@ function($, chai) {
       });
     });
     
+    describe('scroll', function() {
+    
+      it('should return null for an empty collection', function() {
+        var el = $();
+        expect(el.scroll()).to.be.equal(null);
+      });
+      
+      it('should return scroll of element', function() {
+        var el = $('#scroll div');
+        var scroll = el.scroll();
+        expect(scroll.top).to.be.equal(0);
+        expect(scroll.left).to.be.equal(0);
+      });
+    });
+    
   });
   
   return { name: "test.dom.metrics" }
