@@ -1,7 +1,7 @@
 {
   "name": "anchor",
   "version": "0.0.0",
-  "description": "Modular JavaScript platform for web applications.",
+  "description": "Modular platform for JavaScript applications.",
   "repository": {
     "type": "git",
     "url": "git://github.com/anchorjs/anchor.git"
