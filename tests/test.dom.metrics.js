@@ -36,6 +36,27 @@ function($, chai) {
         expect(scroll.top).to.be.equal(0);
         expect(scroll.left).to.be.equal(0);
       });
+      
+      it('should set scroll with x and y', function() {
+        var el = $('#scroll div').scroll(20, 10);
+        var scroll = el.scroll();
+        expect(scroll.top).to.be.equal(10);
+        expect(scroll.left).to.be.equal(20);
+      });
+      
+      it('should set scroll with x', function() {
+        var el = $('#scroll div').scroll(15);
+        var scroll = el.scroll();
+        expect(scroll.top).to.be.equal(10);
+        expect(scroll.left).to.be.equal(15);
+      });
+      
+      it('should set scroll with y', function() {
+        var el = $('#scroll div').scroll(null, 25);
+        var scroll = el.scroll();
+        expect(scroll.top).to.be.equal(25);
+        expect(scroll.left).to.be.equal(15);
+      });
     });
     
   });
