@@ -57,6 +57,39 @@ function($, chai) {
         expect(scroll.top).to.be.equal(25);
         expect(scroll.left).to.be.equal(15);
       });
+      
+      it('should reset', function() {
+        var el = $('#scroll div').scroll(0, 0);
+        var scroll = el.scroll();
+        expect(scroll.top).to.be.equal(0);
+        expect(scroll.left).to.be.equal(0);
+      });
+    });
+    
+    describe('scrollTop', function() {
+    
+      it('should return null for an empty collection', function() {
+        var el = $();
+        expect(el.scrollTop()).to.be.equal(null);
+      });
+      
+      it('should return top scroll of element', function() {
+        var el = $('#scroll div');
+        var scroll = el.scrollTop();
+        expect(scroll).to.be.equal(0);
+      });
+      
+      it('should set top scroll', function() {
+        var el = $('#scroll div').scrollTop(18);
+        var scroll = el.scrollTop();
+        expect(scroll).to.be.equal(18);
+      });
+      
+      it('should reset', function() {
+        var el = $('#scroll div').scrollTop(0);
+        var scroll = el.scrollTop();
+        expect(scroll).to.be.equal(0);
+      });
     });
     
   });
