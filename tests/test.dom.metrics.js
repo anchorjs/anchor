@@ -92,6 +92,32 @@ function($, chai) {
       });
     });
     
+    describe('scrollLeft', function() {
+    
+      it('should return null for an empty collection', function() {
+        var el = $();
+        expect(el.scrollLeft()).to.be.equal(null);
+      });
+      
+      it('should return left scroll of element', function() {
+        var el = $('#scroll div');
+        var scroll = el.scrollLeft();
+        expect(scroll).to.be.equal(0);
+      });
+      
+      it('should set left scroll', function() {
+        var el = $('#scroll div').scrollLeft(8);
+        var scroll = el.scrollLeft();
+        expect(scroll).to.be.equal(8);
+      });
+      
+      it('should reset', function() {
+        var el = $('#scroll div').scrollLeft(0);
+        var scroll = el.scrollLeft();
+        expect(scroll).to.be.equal(0);
+      });
+    });
+    
   });
   
   return { name: "test.dom.metrics" }
