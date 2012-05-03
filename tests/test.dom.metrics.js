@@ -37,6 +37,34 @@ function($, chai) {
         expect(scroll.left).to.be.equal(0);
       });
       
+      it('should set scroll with top and left in object', function() {
+        var el = $('#scroll div').scroll({ top: 12, left: 14});
+        var scroll = el.scroll();
+        expect(scroll.top).to.be.equal(12);
+        expect(scroll.left).to.be.equal(14);
+      });
+      
+      it('should set scroll with x and y in object', function() {
+        var el = $('#scroll div').scroll({ x: 13, y: 11});
+        var scroll = el.scroll();
+        expect(scroll.top).to.be.equal(11);
+        expect(scroll.left).to.be.equal(13);
+      });
+      
+      it('should set scroll with top in object', function() {
+        var el = $('#scroll div').scroll({ top: 19 });
+        var scroll = el.scroll();
+        expect(scroll.top).to.be.equal(19);
+        expect(scroll.left).to.be.equal(13);
+      });
+      
+      it('should set scroll with left in object', function() {
+        var el = $('#scroll div').scroll({ left: 14 });
+        var scroll = el.scroll();
+        expect(scroll.top).to.be.equal(19);
+        expect(scroll.left).to.be.equal(14);
+      });
+      
       it('should set scroll with x and y', function() {
         var el = $('#scroll div').scroll(20, 10);
         var scroll = el.scroll();
