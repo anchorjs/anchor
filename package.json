@@ -24,7 +24,10 @@
     "baseUrl": "vendor",
     "dependencies": {
       "class": "github:anchorjs/class/master",
-      "events": "github:anchorjs/events/master"
+      "selector": "github:anchorjs/selector/master",
+      "dom": "github:anchorjs/dom/master",
+      "events": "github:anchorjs/events/master",
+      "ajax": "github:anchorjs/ajax/master"
     }
   }
 }
