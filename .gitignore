@@ -1,2 +1,5 @@
+vendor/*
+!vendor/events.js
+
 # Mac OS X
 .DS_Store
