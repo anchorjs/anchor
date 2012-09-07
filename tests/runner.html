@@ -2,45 +2,10 @@
 <head>
 	<meta charset="utf-8">
 	<title>Anchor Tests</title>
-	<link rel="stylesheet" href="vendor/mocha/1.0.1/mocha.css" />
-	<link rel="stylesheet" href="runner.css" />
-	<script data-main="runner" src="vendor/require/1.0.7/require.js"></script>
+	<link rel="stylesheet" href="vendor/mocha/mocha.css" />
+	<script data-main="runner" src="vendor/require.js"></script>
 </head>
 <body>
 	<div id="mocha"></div>
-	<div id="fixtures">
-		<div id="node-1"><p>Foo</p></div>
-		<div id="node-2"><p>Foo</p></div>
-		<div id="links">
-			<a id="link-1" href="http://www.example.com/link/1">Link 1</a>
-			<a id="link-2" href="http://www.example.com/link/2">Link 2</a>
-			<p>not a link</p>
-		</div>
-		<div id="manipulate-html">
-			<a id="manipulate-html-link-1" class="manipulate-html-link">foo</a>
-			<a id="manipulate-html-link-2" class="manipulate-html-link"><b>bar</b></a>
-		</div>
-		<div id="manipulate-text">
-			<a id="manipulate-text-link-1" class="manipulate-text-link">foo text</a>
-			<a id="manipulate-text-link-2" class="manipulate-text-link"><b>bar text</b></a>
-		</div>
-		<div id="show-and-hide">
-			<p id="display-block-1">Visible</p>
-			<p id="display-none-1">Not Visible</p>
-			<div>
-				<p id="visible-p-1" class="display-block">Visible</p>
-				<p id="visible-p-2" class="display-block">Visible</p>
-				<p id="visible-p-3" class="display-block">Visible</p>
-			</div>
-			<div>
-				<p id="hidden-p-1" class="display-none">Not Visible</p>
-				<p id="hidden-p-2" class="display-none">Not Visible</p>
-				<p id="hidden-p-3" class="display-none">Not Visible</p>
-			</div>
-		</div>
-		<div id="scroll">
-			<div><h1>Hello</h1><p>I am Scrolling</p></div>
-		</div>
-	</div>
 </body>
 </html>

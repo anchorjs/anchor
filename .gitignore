@@ -2,6 +2,7 @@ vendor/*
 !vendor/ajax.js
 !vendor/dom.js
 !vendor/events.js
+tests/vendor
 
 # Mac OS X
 .DS_Store
