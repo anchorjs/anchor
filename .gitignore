@@ -1,4 +1,6 @@
 vendor/*
+!vendor/ajax.js
+!vendor/dom.js
 !vendor/events.js
 
 # Mac OS X
